@@ -1,23 +1,10 @@
-// import SplashCursor from "./components/SplashCursor"; 
-// import Home from "./components/Home";
 
-// function App() {
-//   return (
-//     <>
-//       <SplashCursor /> 
-//        <Home />
-//     </>
-//   );
-// }
-
-// export default App;
-
-import React from "react";
 import { Routes, Route } from "react-router-dom";
 
 import SplashCursor from "./components/SplashCursor";
 import Home from "./components/Home";
-import Subscribe from "./components/Subscribe";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
+import TermsOfService from "./pages/TermsOfService";
 
 function App() {
   return (
@@ -25,7 +12,8 @@ function App() {
       <SplashCursor />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/subscribe" element={<Subscribe />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/terms-of-service" element={<TermsOfService />} />
       </Routes>
     </>
   );
