@@ -12,10 +12,14 @@ import {
 
 import Counter from "./Counter";
 import Footer from "./Footer";
+import StoreBadges from "./Storebadge";
 
 
 export default function ComingSoon() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const today = new Date().getDate();
+  const isLaunchDay = today === 31;
+
 
   useEffect(() => {
     const handleMouseMove = (e) => {
@@ -77,17 +81,27 @@ export default function ComingSoon() {
               </p>
             </div>
 
-            {/* Counter */}
-            <Counter />
-
             {/* Image */}
+            {isLaunchDay ? <div className="flex justify-center">
+              <img
+                src="/assets/images/Launched.png"
+                alt="Coming Soon"
+                className="w-full max-w-md rounded-xl shadow-lg shadow-purple-900/40"
+              />
+            </div> : 
             <div className="flex justify-center">
               <img
                 src="/assets/images/phone.png"
                 alt="Coming Soon"
                 className="w-full max-w-md rounded-xl shadow-lg shadow-purple-900/40"
               />
-            </div>
+            </div>}
+
+            {/* Counter OR Store Badges */}
+            {isLaunchDay ? <StoreBadges /> : <Counter />}
+            
+
+           
 
             {/* Features */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto">
@@ -117,7 +131,7 @@ export default function ComingSoon() {
                 Beautiful things unfold slowly…
               </p>
 
-              <a
+              {isLaunchDay ? null : <a
                 href="https://rgm.myflodesk.com/fvel9d74gv"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -125,7 +139,8 @@ export default function ComingSoon() {
                 <button className="px-16 py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full font-semibold text-lg hover:scale-105 transition">
                   Notify Me →
                 </button>
-              </a>
+              </a>}
+              
             </div>
 
           </div>
