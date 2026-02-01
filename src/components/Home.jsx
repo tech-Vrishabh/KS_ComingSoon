@@ -10,20 +10,18 @@ import {
   Heart,
 } from "lucide-react";
 
-import Counter from "./Counter";
 import Footer from "./Footer";
 import StoreBadges from "./Storebadge";
 
-
 export default function ComingSoon() {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const today = new Date().getDate();
-  const isLaunchDay = today === 31;
-
 
   useEffect(() => {
     const handleMouseMove = (e) => {
-      setMousePosition({ x: e.clientX, y: e.clientY });
+      setMousePosition({
+        x: e.clientX,
+        y: e.clientY,
+      });
     };
 
     window.addEventListener("mousemove", handleMouseMove);
@@ -73,6 +71,7 @@ export default function ComingSoon() {
               >
                 KATHĀ SINDHU
               </h1>
+
               <p
                 className="text-xl md:text-2xl text-purple-200/80 tracking-wide"
                 style={{ fontFamily: "'El Messiri', sans-serif" }}
@@ -82,26 +81,16 @@ export default function ComingSoon() {
             </div>
 
             {/* Image */}
-            {isLaunchDay ? <div className="flex justify-center">
+            <div className="flex justify-center">
               <img
                 src="/assets/images/Launched.png"
                 alt="Coming Soon"
                 className="w-full max-w-md rounded-xl shadow-lg shadow-purple-900/40"
               />
-            </div> : 
-            <div className="flex justify-center">
-              <img
-                src="/assets/images/phone.png"
-                alt="Coming Soon"
-                className="w-full max-w-md rounded-xl shadow-lg shadow-purple-900/40"
-              />
-            </div>}
+            </div>
 
-            {/* Counter OR Store Badges */}
-            {isLaunchDay ? <StoreBadges /> : <Counter />}
-            
-
-           
+            {/* Store Badges */}
+            <StoreBadges />
 
             {/* Features */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-5xl mx-auto">
@@ -125,28 +114,14 @@ export default function ComingSoon() {
             </div>
 
             {/* CTA */}
-            {/* CTA */}
             <div className="space-y-10 md:space-y-12">
-              <p className="text-xl italic text-purple-200/70 mb-10 md:mb-12">
+              <p className="text-xl italic text-purple-200/70">
                 Beautiful things unfold slowly…
-              </p>
-
-              {isLaunchDay ? null : <a
-                href="https://rgm.myflodesk.com/fvel9d74gv"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <button className="px-16 py-4 bg-gradient-to-r from-purple-600 to-pink-600 rounded-full font-semibold text-lg hover:scale-105 transition">
-                  Notify Me →
-                </button>
-              </a>}
-              
+              </p>             
             </div>
-
           </div>
         </main>
 
-        {/* Footer */}
         <Footer />
       </div>
     </div>
